@@ -1,10 +1,40 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { useEffect, useLayoutEffect, useRef } from 'react'
+import { Routes, Route, Link, useLocation, useNavigationType } from 'react-router-dom'
 import { Header } from './components'
 import { Home, Category, Product, Cart, Checkout, Search, Privacy, Cookies } from './pages'
+
+function ScrollManager() {
+  const location = useLocation()
+  const navType = useNavigationType()
+  const positions = useRef<Map<string, number>>(new Map())
+
+  // own scroll restoration ourselves — don't let the browser fight us
+  useEffect(() => {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+  }, [])
+
+  // continuously record where the current history entry is scrolled
+  useEffect(() => {
+    const key = location.key
+    const onScroll = () => positions.current.set(key, window.scrollY)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [location.key])
+
+  // route change: restore on back/forward (POP), jump to top on a new nav (PUSH/REPLACE).
+  // data is synchronous (bundled JSON) so page height is final here → restore lands correctly
+  useLayoutEffect(() => {
+    if (navType === 'POP') window.scrollTo(0, positions.current.get(location.key) ?? 0)
+    else window.scrollTo(0, 0)
+  }, [location.key, navType])
+
+  return null
+}
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollManager />
       <Header />
       <div className="flex-1">
         <Routes>
