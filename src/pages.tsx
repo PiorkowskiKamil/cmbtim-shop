@@ -58,6 +58,7 @@ export function Product() {
   const { id } = useParams()
   const p = getById(id ?? '')
   const { add } = useCart()
+  const [amount, setAmount] = useState('1')
   if (!p)
     return (
       <Wrap>
@@ -82,12 +83,40 @@ export function Product() {
           <h1 className="font-display font-bold text-3xl mt-1">{p.name}</h1>
           <p className="text-navy font-bold text-2xl mt-4">{zl(p.price)}</p>
           <p className="text-ink/70 mt-4 leading-relaxed">{p.desc}</p>
-          <button
-            onClick={() => add(p.id)}
-            className="mt-6 bg-gold text-navy font-display font-semibold rounded px-8 py-3 hover:bg-gold-dark transition"
-          >
-            Do koszyka
-          </button>
+          <div className="mt-6 flex items-center justify-center gap-3 md:justify-start">
+            <div className="flex items-center border border-black/15 rounded-lg">
+              <button
+                onClick={() => setAmount((a) => String(Math.max(1, (parseInt(a) || 1) - 1)))}
+                className="px-4 py-3 text-xl leading-none text-steel hover:text-gold"
+                aria-label="Mniej"
+              >
+                −
+              </button>
+              <input
+                type="text"
+                inputMode="numeric"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value.replace(/\D/g, ''))}
+                onFocus={(e) => e.target.select()}
+                onBlur={() => setAmount((a) => String(Math.max(1, parseInt(a) || 1)))}
+                className="w-20 text-center py-3 text-base outline-none"
+                aria-label="Ilość"
+              />
+              <button
+                onClick={() => setAmount((a) => String((parseInt(a) || 0) + 1))}
+                className="px-4 py-3 text-xl leading-none text-steel hover:text-gold"
+                aria-label="Więcej"
+              >
+                +
+              </button>
+            </div>
+            <button
+              onClick={() => add(p.id, Math.max(1, parseInt(amount) || 1))}
+              className="bg-gold text-navy font-display font-semibold rounded px-8 py-3.5 hover:bg-gold-dark transition"
+            >
+              Dodaj do koszyka
+            </button>
+          </div>
         </div>
       </div>
     </Wrap>
@@ -95,7 +124,7 @@ export function Product() {
 }
 
 export function Cart() {
-  const { items, total, remove, count } = useCart()
+  const { items, total, remove, count, add, setQty } = useCart()
   if (!count)
     return (
       <Wrap>
@@ -109,6 +138,15 @@ export function Cart() {
     )
   return (
     <Wrap>
+      <Link
+        to="/"
+        className="inline-flex items-center gap-1 text-steel hover:text-gold text-sm mb-4 transition"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+        Wróć do zakupów
+      </Link>
       <h1 className="font-display font-bold text-2xl mb-6">Koszyk</h1>
       <div className="flex flex-col gap-3">
         {items.map(({ product, qty }) => (
@@ -116,14 +154,42 @@ export function Cart() {
             <div className="w-16 h-16 bg-mist rounded flex items-center justify-center shrink-0">
               <Placeholder />
             </div>
-            <div className="flex-1">
-              <p className="font-display font-semibold text-sm">{product.name}</p>
-              <p className="text-steel text-sm">
-                {qty} × {zl(product.price)}
-              </p>
+            <div className="flex-1 min-w-0">
+              <p className="font-display font-semibold text-sm truncate">{product.name}</p>
+              <p className="text-steel text-sm">{zl(product.price)} / szt.</p>
             </div>
-            <span className="font-bold text-navy">{zl(product.price * qty)}</span>
-            <button onClick={() => remove(product.id)} className="text-steel hover:text-gold text-sm transition">
+            <div className="flex items-center border border-black/15 rounded shrink-0">
+              <button
+                onClick={() => add(product.id, -1)}
+                className="px-2.5 py-1 text-steel hover:text-gold"
+                aria-label="Mniej"
+              >
+                −
+              </button>
+              <input
+                type="number"
+                min={1}
+                value={qty}
+                onChange={(e) => setQty(product.id, Math.max(1, parseInt(e.target.value) || 1))}
+                onFocus={(e) => e.target.select()}
+                className="qty-input w-14 text-center py-1 outline-none text-sm"
+                aria-label="Ilość"
+              />
+              <button
+                onClick={() => add(product.id, 1)}
+                className="px-2.5 py-1 text-steel hover:text-gold"
+                aria-label="Więcej"
+              >
+                +
+              </button>
+            </div>
+            <span className="font-bold text-navy w-24 text-right shrink-0 hidden sm:block">
+              {zl(product.price * qty)}
+            </span>
+            <button
+              onClick={() => remove(product.id)}
+              className="text-steel hover:text-gold text-sm transition shrink-0"
+            >
               Usuń
             </button>
           </div>

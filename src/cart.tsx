@@ -3,7 +3,8 @@ import { getById, type Product } from './data/getProducts'
 
 type CartLine = { id: string; qty: number }
 type CartCtx = {
-  add: (id: string) => void
+  add: (id: string, n?: number) => void
+  setQty: (id: string, qty: number) => void
   remove: (id: string) => void
   clear: () => void
   count: number
@@ -28,13 +29,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [lines])
 
   // immutable updates — never mutate the existing lines array
-  const add = (id: string) =>
+  // add n (default 1); a line dropping to qty ≤ 0 is removed
+  const add = (id: string, n = 1) =>
     setLines((ls) => {
       const hit = ls.find((l) => l.id === id)
-      return hit
-        ? ls.map((l) => (l.id === id ? { ...l, qty: l.qty + 1 } : l))
-        : [...ls, { id, qty: 1 }]
+      if (!hit) return n > 0 ? [...ls, { id, qty: n }] : ls
+      const qty = hit.qty + n
+      return qty <= 0 ? ls.filter((l) => l.id !== id) : ls.map((l) => (l.id === id ? { ...l, qty } : l))
     })
+  // set an absolute qty (≤ 0 removes the line)
+  const setQty = (id: string, qty: number) =>
+    setLines((ls) =>
+      qty <= 0 ? ls.filter((l) => l.id !== id) : ls.map((l) => (l.id === id ? { ...l, qty } : l)),
+    )
   const remove = (id: string) => setLines((ls) => ls.filter((l) => l.id !== id))
   const clear = () => setLines([])
 
@@ -46,7 +53,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const count = items.reduce((n, i) => n + i.qty, 0)
   const total = items.reduce((s, i) => s + i.product.price * i.qty, 0)
 
-  return <Ctx.Provider value={{ add, remove, clear, count, total, items }}>{children}</Ctx.Provider>
+  return (
+    <Ctx.Provider value={{ add, setQty, remove, clear, count, total, items }}>{children}</Ctx.Provider>
+  )
 }
 
 export const useCart = () => {

@@ -25,6 +25,7 @@ export const Placeholder = () => (
 export function Header() {
   const { count } = useCart()
   const [q, setQ] = useState('')
+  const [menuOpen, setMenuOpen] = useState(false)
   const nav = useNavigate()
   const submit = (e: FormEvent) => {
     e.preventDefault()
@@ -58,14 +59,33 @@ export function Header() {
         </Link>
       </div>
       <nav className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 flex flex-wrap gap-x-5 gap-y-1 py-2 text-sm">
+        {/* mobile: toggle; desktop: hidden (row always shown) */}
+        <button
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-expanded={menuOpen}
+          className="md:hidden flex items-center justify-center gap-2 w-full px-4 py-3 text-sm text-white/80 hover:text-gold"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          Kategorie
+        </button>
+        {/* vertical drawer on mobile (toggled), inline row on desktop */}
+        <div
+          className={
+            (menuOpen ? 'flex' : 'hidden') +
+            ' md:flex mx-auto max-w-6xl px-4 flex-col md:flex-row md:flex-wrap gap-x-5 md:gap-y-1 pb-2 md:py-2 text-sm'
+          }
+        >
           {categories.map((c) => (
             <NavLink
               key={c.slug}
               to={'/kategoria/' + c.slug}
+              onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
                 // ponytail: colour only, never font-weight — bold glyphs are wider → flex row reflows on switch
-                'transition ' + (isActive ? 'text-gold' : 'text-white/80 hover:text-gold')
+                'transition py-2.5 text-center border-b border-white/10 last:border-0 md:border-0 md:py-0 md:text-left ' +
+                (isActive ? 'text-gold' : 'text-white/80 hover:text-gold')
               }
             >
               {c.name}

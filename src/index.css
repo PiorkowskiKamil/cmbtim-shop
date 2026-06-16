@@ -21,3 +21,14 @@ body {
 button {
   cursor: pointer;
 }
+
+/* number-input bez natywnych strzałek (steppery ilości) */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.qty-input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
