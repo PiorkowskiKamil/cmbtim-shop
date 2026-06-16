@@ -57,7 +57,7 @@ export function Category() {
 export function Product() {
   const { id } = useParams()
   const p = getById(id ?? '')
-  const { add } = useCart()
+  const { add, notify } = useCart()
   const [amount, setAmount] = useState('1')
   if (!p)
     return (
@@ -111,7 +111,11 @@ export function Product() {
               </button>
             </div>
             <button
-              onClick={() => add(p.id, Math.max(1, parseInt(amount) || 1))}
+              onClick={() => {
+                const n = Math.max(1, parseInt(amount) || 1)
+                add(p.id, n)
+                notify(`Dodano do koszyka (${n} szt.)`)
+              }}
               className="bg-gold text-navy font-display font-semibold rounded px-8 py-3.5 hover:bg-gold-dark transition"
             >
               Dodaj do koszyka

@@ -98,7 +98,7 @@ export function Header() {
 }
 
 export function ProductGrid({ products }: { products: Product[] }) {
-  const { add } = useCart()
+  const { add, notify } = useCart()
   if (!products.length) return <p className="text-steel py-10">Brak wyników.</p>
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
@@ -119,7 +119,10 @@ export function ProductGrid({ products }: { products: Product[] }) {
             </Link>
             <span className="text-navy font-bold mt-auto">{zl(p.price)}</span>
             <button
-              onClick={() => add(p.id)}
+              onClick={() => {
+                add(p.id)
+                notify('Dodano do koszyka')
+              }}
               className="bg-gold text-navy font-display font-semibold text-sm rounded py-2 hover:bg-gold-dark transition"
             >
               Do koszyka
