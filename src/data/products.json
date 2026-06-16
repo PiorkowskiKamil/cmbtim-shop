@@ -1,0 +1,49 @@
+[
+  { "id": "elewacje-1", "name": "Tynk mozaikowy", "category": "Elewacje", "slug": "elewacje", "price": 189.99, "desc": "Dekoracyjny tynk mozaikowy na cokoły i elewacje, odporny na ścieranie i wilgoć." },
+  { "id": "elewacje-2", "name": "Tynk silikonowy", "category": "Elewacje", "slug": "elewacje", "price": 159.0, "desc": "Elastyczny tynk silikonowy, samoczyszczący, do ścian zewnętrznych." },
+  { "id": "elewacje-3", "name": "Klej do styropianu", "category": "Elewacje", "slug": "elewacje", "price": 38.5, "desc": "Zaprawa klejąca do mocowania płyt styropianowych w systemach ociepleń." },
+  { "id": "elewacje-4", "name": "Siatka elewacyjna z włókna", "category": "Elewacje", "slug": "elewacje", "price": 74.9, "desc": "Siatka zbrojąca z włókna szklanego, 145 g/m², rolka 50 m²." },
+  { "id": "elewacje-5", "name": "Grunt podkładowy", "category": "Elewacje", "slug": "elewacje", "price": 89.0, "desc": "Grunt zwiększający przyczepność pod tynki cienkowarstwowe." },
+
+  { "id": "dekarskie-1", "name": "Masy renowacyjne bitumiczne", "category": "Dekarskie", "slug": "dekarskie", "price": 119.0, "desc": "Bitumiczna masa renowacyjna do napraw i uszczelnień pokryć dachowych." },
+  { "id": "dekarskie-2", "name": "Papa termozgrzewalna", "category": "Dekarskie", "slug": "dekarskie", "price": 99.9, "desc": "Papa wierzchniego krycia, modyfikowana SBS, na osnowie poliestrowej." },
+  { "id": "dekarskie-3", "name": "Gont bitumiczny", "category": "Dekarskie", "slug": "dekarskie", "price": 45.0, "desc": "Gont bitumiczny na dachy skośne, paczka 3 m²." },
+  { "id": "dekarskie-4", "name": "Membrana dachowa", "category": "Dekarskie", "slug": "dekarskie", "price": 289.0, "desc": "Membrana wysokoparoprzepuszczalna, rolka 75 m²." },
+  { "id": "dekarskie-5", "name": "Lepik asfaltowy", "category": "Dekarskie", "slug": "dekarskie", "price": 64.5, "desc": "Lepik asfaltowy na zimno do klejenia papy i gruntowania." },
+
+  { "id": "remonty-1", "name": "Farby antykorozyjne", "category": "Remonty", "slug": "remonty", "price": 79.99, "desc": "Farba antykorozyjna do zabezpieczania konstrukcji stalowych." },
+  { "id": "remonty-2", "name": "Gładź szpachlowa", "category": "Remonty", "slug": "remonty", "price": 42.0, "desc": "Gotowa gładź polimerowa do wykańczania ścian i sufitów." },
+  { "id": "remonty-3", "name": "Zaprawa murarska", "category": "Remonty", "slug": "remonty", "price": 19.9, "desc": "Uniwersalna zaprawa murarska M5, worek 25 kg." },
+  { "id": "remonty-4", "name": "Silikon dekarski", "category": "Remonty", "slug": "remonty", "price": 24.5, "desc": "Silikon do uszczelnień dachowych, odporny na UV i temperaturę." },
+  { "id": "remonty-5", "name": "Taśma malarska", "category": "Remonty", "slug": "remonty", "price": 8.9, "desc": "Taśma malarska o czystym odrywaniu, 48 mm × 50 m." },
+
+  { "id": "farby-przemyslowe-1", "name": "Farby chlorokauczukowe", "category": "Farby przemysłowe", "slug": "farby-przemyslowe", "price": 134.0, "desc": "Farba chlorokauczukowa odporna chemicznie, do posadzek i konstrukcji." },
+  { "id": "farby-przemyslowe-2", "name": "Farba epoksydowa", "category": "Farby przemysłowe", "slug": "farby-przemyslowe", "price": 219.0, "desc": "Dwuskładnikowa farba epoksydowa na betonowe posadzki przemysłowe." },
+  { "id": "farby-przemyslowe-3", "name": "Podkład antykorozyjny", "category": "Farby przemysłowe", "slug": "farby-przemyslowe", "price": 88.0, "desc": "Szybkoschnący podkład antykorozyjny pod farby nawierzchniowe." },
+  { "id": "farby-przemyslowe-4", "name": "Rozcieńczalnik", "category": "Farby przemysłowe", "slug": "farby-przemyslowe", "price": 29.9, "desc": "Rozcieńczalnik do wyrobów chlorokauczukowych, 5 l." },
+  { "id": "farby-przemyslowe-5", "name": "Farba do betonu", "category": "Farby przemysłowe", "slug": "farby-przemyslowe", "price": 149.0, "desc": "Farba nawierzchniowa do betonu, odporna na ścieranie." },
+
+  { "id": "elektryczne-1", "name": "Taśmy LED", "category": "Elektryczne", "slug": "elektryczne", "price": 49.99, "desc": "Taśma LED 5 m, barwa neutralna, IP65, do oświetlenia dekoracyjnego." },
+  { "id": "elektryczne-2", "name": "Przewód YDYp 3×1.5", "category": "Elektryczne", "slug": "elektryczne", "price": 3.2, "desc": "Przewód instalacyjny YDYp 3×1,5 mm², cena za metr." },
+  { "id": "elektryczne-3", "name": "Gniazdo natynkowe", "category": "Elektryczne", "slug": "elektryczne", "price": 14.9, "desc": "Gniazdo natynkowe z uziemieniem, IP20." },
+  { "id": "elektryczne-4", "name": "Puszka instalacyjna", "category": "Elektryczne", "slug": "elektryczne", "price": 2.5, "desc": "Puszka podtynkowa fi 60 mm do łączenia przewodów." },
+  { "id": "elektryczne-5", "name": "Wyłącznik nadprądowy", "category": "Elektryczne", "slug": "elektryczne", "price": 27.0, "desc": "Wyłącznik nadprądowy B16, 1-fazowy, na szynę DIN." },
+
+  { "id": "hydrauliczne-1", "name": "Pasty uszczelniające", "category": "Hydrauliczne", "slug": "hydrauliczne", "price": 22.9, "desc": "Pasta uszczelniająca do połączeń gwintowanych instalacji wodnych." },
+  { "id": "hydrauliczne-2", "name": "Taśma teflonowa", "category": "Hydrauliczne", "slug": "hydrauliczne", "price": 4.5, "desc": "Taśma teflonowa do uszczelniania gwintów, 12 mm × 12 m." },
+  { "id": "hydrauliczne-3", "name": "Kolano PEX", "category": "Hydrauliczne", "slug": "hydrauliczne", "price": 6.9, "desc": "Kolano zaciskowe PEX 16 mm do instalacji wodnych." },
+  { "id": "hydrauliczne-4", "name": "Zawór kulowy", "category": "Hydrauliczne", "slug": "hydrauliczne", "price": 34.0, "desc": "Mosiężny zawór kulowy 1/2 cala, pełnoprzepływowy." },
+  { "id": "hydrauliczne-5", "name": "Syfon umywalkowy", "category": "Hydrauliczne", "slug": "hydrauliczne", "price": 39.9, "desc": "Syfon butelkowy do umywalki z korkiem klik-klak." },
+
+  { "id": "narzedzia-1", "name": "Teleskopy malarskie", "category": "Narzędzia", "slug": "narzedzia", "price": 59.0, "desc": "Teleskop malarski 1,5–3 m, aluminiowy, do wałków i szczotek." },
+  { "id": "narzedzia-2", "name": "Wałek malarski", "category": "Narzędzia", "slug": "narzedzia", "price": 18.9, "desc": "Wałek malarski 18 cm z mikrofibry, do farb emulsyjnych." },
+  { "id": "narzedzia-3", "name": "Poziomica 60cm", "category": "Narzędzia", "slug": "narzedzia", "price": 44.0, "desc": "Poziomica aluminiowa 60 cm z trzema libellami." },
+  { "id": "narzedzia-4", "name": "Wiertło SDS", "category": "Narzędzia", "slug": "narzedzia", "price": 29.9, "desc": "Wiertło SDS-Plus 10 × 160 mm do betonu i muru." },
+  { "id": "narzedzia-5", "name": "Taca malarska", "category": "Narzędzia", "slug": "narzedzia", "price": 12.5, "desc": "Taca malarska z ociekaczem, do wałków 18 cm." },
+
+  { "id": "bhp-1", "name": "Rękawice robocze", "category": "BHP", "slug": "bhp", "price": 9.9, "desc": "Rękawice powlekane nitrylem, rozmiar 10, do prac ogólnobudowlanych." },
+  { "id": "bhp-2", "name": "Okulary ochronne", "category": "BHP", "slug": "bhp", "price": 16.9, "desc": "Okulary ochronne z poliwęglanu, odporne na zarysowania." },
+  { "id": "bhp-3", "name": "Kask budowlany", "category": "BHP", "slug": "bhp", "price": 34.9, "desc": "Kask ochronny z regulacją, zgodny z EN 397." },
+  { "id": "bhp-4", "name": "Maska przeciwpyłowa", "category": "BHP", "slug": "bhp", "price": 12.9, "desc": "Półmaska filtrująca FFP2, opakowanie 3 szt." },
+  { "id": "bhp-5", "name": "Kamizelka ostrzegawcza", "category": "BHP", "slug": "bhp", "price": 14.5, "desc": "Kamizelka odblaskowa, żółta, rozmiar uniwersalny." }
+]
